@@ -220,6 +220,7 @@ func main() {
 
 }*/
 
+/*
 package main
 
 import "fmt"
@@ -235,5 +236,76 @@ func createIntPointer() *int {
 func main() {
  ptr := createIntPointer()
  fmt.Println(*ptr)
+
+}
+*/
+
+/*package main
+
+import "fmt"
+
+type Point struct {
+ X, Y int
+}
+
+func main() {
+
+ p := Point{X: 10, Y: 20}
+
+ ptr := &p
+
+ fmt.Println("X: ", (*ptr).X)
+ fmt.Println("Y: ", ptr.Y)
+
+}*/
+
+/*package main
+
+import "fmt"
+
+func modifySlice(slice *[]int) {
+ (*slice)[0] = 100
+
+}
+
+func main() {
+
+ nums := []int{1, 2, 3, 4}
+ fmt.Println("Before:", nums)
+
+ modifySlice(&nums)
+ fmt.Println("After: ", nums)
+
+}*/
+
+package main
+
+import "fmt"
+
+//Pass-by-Value vs Pass-by-Reference
+
+func modifyValue(val int) {
+
+ val = 50
+
+}
+
+func modifyPointer(val *int) {
+ *val = 50
+}
+
+func main() {
+
+ x := 42
+
+ fmt.Println("Before:", x)
+
+ modifyValue(x)
+
+ fmt.Println("After (value):", x)
+
+ modifyPointer(&x)
+
+ fmt.Println("After (pointer):", x)
 
 }
