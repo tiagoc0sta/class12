@@ -47,6 +47,6 @@ func main() {
 
 	clienteBruno := clientes.Titular {Nome: "Bruno", CPF: "123.123.123.12",Profissao: "Desenvolvedor Go"}
 	contaDoBruno := contas.ContaCorrente {clienteBruno}
-	println(contaDoBruno)
+	println(contaDoBruno)//
 
 }
