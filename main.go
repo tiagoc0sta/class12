@@ -4,21 +4,26 @@ import (
 	"fmt"
 
 	"github.com/tiagoc0sta/alura-oo-Bank-Golang/contas"
-
-	"github.com/tiagoc0sta/alura-oo-Bank-Golang/clientes"
 )
 
+func PagarBoleto(conta verificarConta, valorDoBoleto float64) {
+	conta.Sacar(valorDoBoleto)
+}
+
+type verificarConta interface {
+	Sacar(valor float64) string
+}
 
 
 func main() {
 	/*
 	//Tres maneiras de criar uma nova instancia da struct
 	contaDoTiago := contas.ContaCorrente { // 1. Create a new instance of the `ContaCorrente` struct.
-		Titular: "Tiago", NumeroAgencia: 123456, Saldo: 125.5,
+		Titular: "Tiago", NumeroAgencia: 123456, saldo: 125.5,
 	}
 
 	contaDaBruna := contas.ContaCorrente{ // 2. Create a new instance of the `ContaCorrente` struct.
-		Titular: "Bruna", NumeroAgencia: 222, NumeroConta: 111222, Saldo: 200,
+		Titular: "Bruna", NumeroAgencia: 222, NumeroConta: 111222, saldo: 200,
 	}
 	fmt.Println(contaDoTiago)
 	fmt.Println(contaDaBruna)
@@ -37,20 +42,32 @@ func main() {
 	status, valor := contaDaSilvia.Depositar(2000) // salva os retornos da função Depositar em variaveis
 	fmt.Println(status, valor)
 	
-	contaDaSilvia := contas.ContaCorrente{	Titular:"Silvia", Saldo:300	}
-	contaDoGustavo := contas.ContaCorrente{	Titular:"Gustavo", Saldo:100}
+	contaDaSilvia := contas.ContaCorrente{	Titular:"Silvia", saldo:300	}
+	contaDoGustavo := contas.ContaCorrente{	Titular:"Gustavo", saldo:100}
 
 	status := contaDaSilvia.Transferir(200,&contaDoGustavo)
 
 	fmt.Println(status)
 	fmt.Println(contaDaSilvia)
-	fmt.Println(contaDoGustavo)*/
+	fmt.Println(contaDoGustavo)
 	
 
 	clienteBruno := clientes.Titular{Nome: "Bruno", CPF: "123.123.123.12",Profissao: "Desenvolvedor Go"}
-	contaDoBruno := contas.ContaCorrente{Titular: clienteBruno, NumeroAgencia: 123, NumeroConta: 123456, Saldo: 100}
+	contaDoBruno := contas.ContaCorrente{Titular: clienteBruno, NumeroAgencia: 123, NumeroConta: 123456, saldo: 100}
 	
 	fmt.Println(contaDoBruno)
+
+	contaExemplo := contas.ContaCorrente{}
+	contaExemplo.Depositar(100)
+
+	fmt.Println(contaExemplo.ObterSaldo())*/
+
+	contaDoDenis := contas.ContaPoupanca{}
+	contaDoDenis.Depositar(500)
+	contaDoDenis.Sacar(100)
+	PagarBoleto(&contaDoDenis, 60)
+	
+	fmt.Println(contaDoDenis.ObterSaldo())
 
 
 }
