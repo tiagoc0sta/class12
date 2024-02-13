@@ -1,9 +1,11 @@
 package main
 
 import (
-	"_/C_/Users/chris/source/repos/Portfolio/Golang/alura-oo-Bank-Golang/contas"
+	"fmt"
 
-	"./clientes"
+	"github.com/tiagoc0sta/alura-oo-Bank-Golang/contas"
+
+	"github.com/tiagoc0sta/alura-oo-Bank-Golang/clientes"
 )
 
 
@@ -45,8 +47,10 @@ func main() {
 	fmt.Println(contaDoGustavo)*/
 	
 
-	clienteBruno := clientes.Titular {Nome: "Bruno", CPF: "123.123.123.12",Profissao: "Desenvolvedor Go"}
-	contaDoBruno := contas.ContaCorrente {clienteBruno}
-	println(contaDoBruno)//
+	clienteBruno := clientes.Titular{Nome: "Bruno", CPF: "123.123.123.12",Profissao: "Desenvolvedor Go"}
+	contaDoBruno := contas.ContaCorrente{Titular: clienteBruno, NumeroAgencia: 123, NumeroConta: 123456, Saldo: 100}
+	
+	fmt.Println(contaDoBruno)
+
 
 }
