@@ -294,6 +294,7 @@ func modifyPointer(val *int) {
  *val = 50
 }
 
+
 func main() {
 
  x := 42
@@ -309,3 +310,4 @@ func main() {
  fmt.Println("After (pointer):", x)
 
 }
+
